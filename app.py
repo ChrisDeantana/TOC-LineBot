@@ -101,20 +101,6 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-    # if event is MessageEvent and message is TextMessage, then echo text
-    # for event in events:
-    #     if not isinstance(event, MessageEvent):
-    #         continue
-    #     if not isinstance(event.message, TextMessage):
-    #         continue
-    #
-    #     line_bot_api.reply_message(
-    #         #event.reply_token, TextSendMessage(text=event.message.text)
-    #         event.reply_token, TextSendMessage(text="Test!")
-    #     )
-    #     if event.message.text.lower() == "happy birthday":
-    #         send_text_message(event.reply_token, "thank you")
-
     for event in events:
         if not isinstance(event, MessageEvent):
             continue
@@ -128,7 +114,27 @@ def callback():
         response = machine.advance(event)
 
         if response == False:
-            send_text_message(event.reply_token, "Please check your input!")
+
+            if machine.state == 'user':
+                send_text_message(event.reply_token, "Please choose one of the following!")
+                title = 'Lets learn Japanese'
+                text = 'Choose『Characters』Or『Vocabulary』Or『FSM』'
+                btn = [
+                    MessageTemplateAction(
+                        label='Characters',
+                        text='Characters'
+                    ),
+                    MessageTemplateAction(
+                        label='Vocabulary',
+                        text='Vocabulary'
+                    ),
+                    MessageTemplateAction(
+                        label='FSM',
+                        text='FSM'
+                    ),
+                ]
+                url = 'https://assets.website-files.com/5cdc34afa4217f8020168210/5e06163d20470442a540712b_languageIcon_japanese.png'
+                send_button_message(event.reply_token, title, text, btn, url)
 
     return "OK"
 

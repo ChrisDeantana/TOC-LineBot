@@ -13,22 +13,6 @@ def send_text_message(reply_token, text):
 
     return "OK"
 
-def send_text_message_AI(reply_token, text):
-    line_bot_api = LineBotApi(channel_access_token)
-    line_bot_api.reply_message(reply_token,TextSendMessage(text=Olami().nli(text)))
-
-    return "OK"
-
-def send_carousel_message(reply_token, col):
-    line_bot_api = LineBotApi(channel_access_token)
-    message = TemplateSendMessage(
-        alt_text = 'Carousel template',
-        template = ImageCarouselTemplate(columns = col)
-    )
-    line_bot_api.reply_message(reply_token, message)
-
-    return "OK"
-
 def send_button_message(reply_token, title, text, btn, url):
     line_bot_api = LineBotApi(channel_access_token)
     message = TemplateSendMessage(
@@ -54,10 +38,3 @@ def send_image_message(reply_token, url):
 
     return "OK"
 
-"""
-def send_image_url(id, img_url):
-    pass
-
-def send_button_message(id, text, buttons):
-    pass
-"""

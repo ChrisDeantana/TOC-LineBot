@@ -10,21 +10,21 @@ class TocMachine(GraphMachine):
 
     def is_going_to_characters(self, event):
         text = event.message.text
-        return text.lower() == "choose"
+        return text.lower() == 'choose'
 
     def on_enter_characters(self, event):
         send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
 
     def is_going_to_hiragana(self, event):
         text = event.message.text
-        return text.lower() == "hiragana"
+        return text.lower() == 'hiragana'
 
     def on_enter_hiragana(self, event):
         send_text_message(event.reply_token, 'Display The Hiragana')
 
     def is_going_to_katakana(self, event):
         text = event.message.text
-        return text.lower() == "katakana"
+        return text.lower() == 'katakana'
 
     def on_enter_katakana(self, event):
         send_text_message(event.reply_token, 'Display The Katakana')

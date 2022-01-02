@@ -73,7 +73,8 @@ def callback():
             continue
 
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.message.text)
+            #event.reply_token, TextSendMessage(text=event.message.text)
+            event.reply_token, TextSendMessage(text="Test!")
         )
 
     return "OK"

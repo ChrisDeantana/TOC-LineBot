@@ -106,6 +106,7 @@ parser = WebhookParser(channel_secret)
 
 @app.route("/callback", methods=["POST"])
 def callback():
+    machine.get_graph().draw("fsm.png", prog="dot", format="png")
     signature = request.headers["X-Line-Signature"]
     # get request body as text
     body = request.get_data(as_text=True)

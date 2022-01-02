@@ -13,7 +13,21 @@ class TocMachine(GraphMachine):
         return text.lower() == 'choose'
 
     def on_enter_characters(self, event):
-        send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
+        title = 'Lets learn Japanese'
+        text = 'Choose『Hiragana』還是『Katakana』'
+        btn = [
+            MessageTemplateAction(
+                label='Hiragana',
+                text='Hiragana'
+            ),
+            MessageTemplateAction(
+                label='Katakana',
+                text='Katakana'
+            ),
+        ]
+        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
+        send_button_message(event.reply_token, title, text, btn, url)
+        #send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
 
     def is_going_to_hiragana(self, event):
         text = event.message.text

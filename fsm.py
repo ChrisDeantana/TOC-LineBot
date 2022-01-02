@@ -1,7 +1,7 @@
 from transitions.extensions import GraphMachine
 
 from linebot.models import MessageTemplateAction
-from utils import send_text_message, send_carousel_message, send_button_message, send_image_message
+from utils import send_text_message, send_button_message, send_image_message
 
 #https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png - hiragana
 #https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png - katakana

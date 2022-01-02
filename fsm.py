@@ -110,6 +110,13 @@ class TocMachine(GraphMachine):
     def on_enter_hiragana_dakuon(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_dakuon')
 
+    def is_going_to_hiragana_combo(self, event):
+        text = event.message.text
+        return text.lower() == 'combo'
+
+    def on_enter_hiragana_combo(self, event):
+        send_text_message(event.reply_token, 'Display The hiragana_combo')
+
     def is_going_to_hiragana_small(self, event):
         text = event.message.text
         return text.lower() == 'small'

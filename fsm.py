@@ -35,7 +35,7 @@ class TocMachine(GraphMachine):
         return text.lower() == 'hiragana'
 
     def on_enter_hiragana(self, event):
-        #send_text_message(event.reply_token, 'Lets learn Hiragana')
+        send_text_message(event.reply_token, 'Lets learn Hiragana')
         title = 'Hiragana'
         text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
         btn = [
@@ -52,12 +52,8 @@ class TocMachine(GraphMachine):
                 text='hiragana_Combo'
             ),
             MessageTemplateAction(
-                label='hiragana_Small',
+                label='hiragana_SmallnLongVowels',
                 text='hiragana_Small'
-            ),
-            MessageTemplateAction(
-                label='hiragana_LongVowels',
-                text='hiragana_LongVowels'
             ),
         ]
         url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
@@ -117,19 +113,12 @@ class TocMachine(GraphMachine):
     def on_enter_hiragana_combo(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_combo')
 
-    def is_going_to_hiragana_small(self, event):
+    def is_going_to_hiragana_smallnlongvowels(self, event):
         text = event.message.text
-        return text.lower() == 'hiragana_small'
+        return text.lower() == 'hiragana_smallnlongvowels'
 
-    def on_enter_hiragana_small(self, event):
-        send_text_message(event.reply_token, 'Display The hiragana_small')
-
-    def is_going_to_hiragana_longvowels(self, event):
-        text = event.message.text
-        return text.lower() == 'hiragana_longvowels'
-
-    def on_enter_hiragana_longvowels(self, event):
-        send_text_message(event.reply_token, 'Display The hiragana_longvowels')
+    def on_enter_hiragana_smallnlongvowels(self, event):
+        send_text_message(event.reply_token, 'Display The hiragana_smallnlongvowels')
 
     def is_going_to_katakana_basic(self, event):
         text = event.message.text
@@ -152,17 +141,10 @@ class TocMachine(GraphMachine):
     def on_enter_katakana_combo(self, event):
         send_text_message(event.reply_token, 'Display The katakana_combo')
 
-    def is_going_to_katakana_small(self, event):
+    def is_going_to_katakana_smallnlongvowels(self, event):
         text = event.message.text
-        return text.lower() == 'small'
+        return text.lower() == 'smallnlongvowels'
 
-    def on_enter_katakana_small(self, event):
-        send_text_message(event.reply_token, 'Display The katakana_small')
-
-    def is_going_to_katakana_longvowels(self, event):
-        text = event.message.text
-        return text.lower() == 'longvowels'
-
-    def on_enter_katakana_longvowels(self, event):
-        send_text_message(event.reply_token, 'Display The katakana_longvowels')
+    def on_enter_katakana_smallnlongvowels(self, event):
+        send_text_message(event.reply_token, 'Display The katakana_smallnlongvowels')
 

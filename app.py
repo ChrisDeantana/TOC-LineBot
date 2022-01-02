@@ -22,13 +22,11 @@ machine = TocMachine(
         "hiragana_basic",
         "hiragana_dakuon",
         "hiragana_combo",
-        "hiragana_small",
-        "hiragana_longvowels",
+        "hiragana_smallnlongvowels",
         "katakana_basic",
         "katakana_dakuon",
         "katakana_combo",
-        "katakana_small",
-        "katakana_longvowels",
+        "katakana_smallnlongvowels",
         "restart"
     ],
     transitions=[
@@ -38,13 +36,11 @@ machine = TocMachine(
         {'trigger': 'advance', 'source': 'hiragana', 'dest': 'hiragana_basic', 'conditions': 'is_going_to_hiragana_basic'},
         {'trigger': 'advance', 'source': 'hiragana', 'dest': 'hiragana_dakuon', 'conditions': 'is_going_to_hiragana_dakuon'},
         {'trigger': 'advance', 'source': 'hiragana', 'dest': 'hiragana_combo', 'conditions': 'is_going_to_hiragana_combo'},
-        {'trigger': 'advance', 'source': 'hiragana', 'dest': 'hiragana_small', 'conditions': 'is_going_to_hiragana_small'},
-        {'trigger': 'advance', 'source': 'hiragana', 'dest': 'katakana_longvowels', 'conditions': 'is_going_to_hiragana_longvowels'},
+        {'trigger': 'advance', 'source': 'hiragana', 'dest': 'hiragana_smallnlongvowels', 'conditions': 'is_going_to_hiragana_smallnlongvowels'},
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_basic', 'conditions': 'is_going_to_katakana_basic'},
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_dakuon', 'conditions': 'is_going_to_katakana_dakuon'},
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_combo', 'conditions': 'is_going_to_katakana_combo'},
-        {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_small', 'conditions': 'is_going_to_katakana_small'},
-        {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_longvowels', 'conditions': 'is_going_to_katakana_longvowels'},
+        {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_smallnlongvowels', 'conditions': 'is_going_to_katakana_smallnlongvowels'},
         {
             "trigger": "go_back",
             "source": [
@@ -55,13 +51,11 @@ machine = TocMachine(
                 "hiragana_basic",
                 "hiragana_dakuon",
                 "hiragana_combo",
-                "hiragana_small",
-                "hiragana_longvowels",
+                "hiragana_smallnlongvowels",
                 "katakana_basic",
                 "katakana_dakuon",
                 "katakana_combo",
-                "katakana_small",
-                "katakana_longvowels"
+                "katakana_smallnlongvowels"
             ],
             "dest": "user"
         },

@@ -48,5 +48,11 @@ if the user choose 『FSM』.
 
 	a FSM graph will be shown 
 
-
-
+### Images
+![fsm](./img/1.jpg)
+![fsm](./img/2.jpg)
+![fsm](./img/3.jpg)
+![fsm](./img/4.jpg)
+![fsm](./img/5.jpg)
+![fsm](./img/6.jpg)
+![fsm](./img/7.jpg)

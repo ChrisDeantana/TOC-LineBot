@@ -3,8 +3,9 @@ from transitions.extensions import GraphMachine
 from linebot.models import MessageTemplateAction
 from utils import send_text_message, send_button_message, send_image_message
 
-#https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png - hiragana
-#https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png - katakana
+#https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png - hiragana https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-hiragana.jpg
+#https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png - katakana https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-katakana.jpg
+
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -51,7 +52,7 @@ class TocMachine(GraphMachine):
                 text='Katakana'
             ),
         ]
-        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
+        url = 'https://www.japan-academy.in/blog/wp-content/uploads/2021/04/Difference-between-Hiragana-and-Katakana-in-Japanese-Language-870x600.jpg'
         send_button_message(event.reply_token, title, text, btn, url)
 
     def is_going_to_hiragana(self, event):
@@ -79,7 +80,7 @@ class TocMachine(GraphMachine):
                 text='smallnlongvowels'
             ),
         ]
-        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
+        url = 'https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-hiragana.jpg'
         send_button_message(event.reply_token, title, text, btn, url)
         #send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
 
@@ -88,7 +89,29 @@ class TocMachine(GraphMachine):
         return text.lower() == 'katakana'
 
     def on_enter_katakana(self, event):
-        send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
+        title = 'Lets learn Japanese'
+        text = 'Choose『Hiragana』Or『Katakana』'
+        btn = [
+            MessageTemplateAction(
+                label='Basic',
+                text='Basic'
+            ),
+            MessageTemplateAction(
+                label='Dakuon',
+                text='Dakuon'
+            ),
+            MessageTemplateAction(
+                label='Combo',
+                text='Combo'
+            ),
+            MessageTemplateAction(
+                label='SL-Vowels',
+                text='smallnlongvowels'
+            ),
+        ]
+        url = 'https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-katakana.jpg'
+        send_button_message(event.reply_token, title, text, btn, url)
+        #send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
 
     def is_going_to_hiragana_basic(self, event):
         text = event.message.text
@@ -96,6 +119,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_dakuon(self, event):
         text = event.message.text
@@ -103,6 +127,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_dakuon(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_dakuon.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_combo(self, event):
         text = event.message.text
@@ -110,6 +135,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_combo(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_combo.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_smallnlongvowels(self, event):
         text = event.message.text
@@ -117,6 +143,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_smallnlongvowels(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_smallnlongvowels.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_basic(self, event):
         text = event.message.text
@@ -124,6 +151,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_dakuon(self, event):
         text = event.message.text
@@ -131,6 +159,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_dakuon(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_dakuon.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_combo(self, event):
         text = event.message.text
@@ -138,6 +167,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_combo(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_combo.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_smallnlongvowels(self, event):
         text = event.message.text
@@ -145,4 +175,5 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_smallnlongvowels(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_smallnlongvowels.jpg?raw=true')
+        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 

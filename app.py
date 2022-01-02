@@ -132,34 +132,34 @@ def callback():
 
     return "OK"
 
-# @app.route("/webhook", methods=["POST"])
-# def webhook_handler():
-#     signature = request.headers["X-Line-Signature"]
-#     # get request body as text
-#     body = request.get_data(as_text=True)
-#     app.logger.info(f"Request body: {body}")
-#
-#     # parse webhook body
-#     try:
-#         events = parser.parse(body, signature)
-#     except InvalidSignatureError:
-#         abort(400)
-#
-#     # if event is MessageEvent and message is TextMessage, then echo text
-#     for event in events:
-#         if not isinstance(event, MessageEvent):
-#             continue
-#         if not isinstance(event.message, TextMessage):
-#             continue
-#         if not isinstance(event.message.text, str):
-#             continue
-#         print(f"\nFSM STATE: {machine.state}")
-#         print(f"REQUEST BODY: \n{body}")
-#         response = machine.advance(event)
-#         if response == False:
-#             send_text_message(event.reply_token, "Not Entering any State")
-#
-#     return "OK"
+@app.route("/webhook", methods=["POST"])
+def webhook_handler():
+    signature = request.headers["X-Line-Signature"]
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info(f"Request body: {body}")
+
+    # parse webhook body
+    try:
+        events = parser.parse(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+
+    # if event is MessageEvent and message is TextMessage, then echo text
+    for event in events:
+        if not isinstance(event, MessageEvent):
+            continue
+        if not isinstance(event.message, TextMessage):
+            continue
+        if not isinstance(event.message.text, str):
+            continue
+        print(f"\nFSM STATE: {machine.state}")
+        print(f"REQUEST BODY: \n{body}")
+        response = machine.advance(event)
+        if response == False:
+            send_text_message(event.reply_token, "Not Entering any State")
+
+    return "OK"
 
 
 @app.route("/show-fsm", methods=["GET"])

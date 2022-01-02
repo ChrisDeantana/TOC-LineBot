@@ -46,28 +46,28 @@ class TocMachine(GraphMachine):
 
     def is_going_to_hiragana_basic(self, event):
         text = event.message.text
-        return text.lower() == 'hiragana_basic'
+        return text.lower() == 'basic'
 
     def on_enter_hiragana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png')
 
     def is_going_to_hiragana_dakuon(self, event):
         text = event.message.text
-        return text.lower() == 'hiragana_dakuon'
+        return text.lower() == 'dakuon'
 
     def on_enter_hiragana_dakuon(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_dakuon')
 
     def is_going_to_hiragana_combo(self, event):
         text = event.message.text
-        return text.lower() == 'hiragana_combo'
+        return text.lower() == 'combo'
 
     def on_enter_hiragana_combo(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_combo')
 
     def is_going_to_hiragana_smallnlongvowels(self, event):
         text = event.message.text
-        return text.lower() == 'hiragana_smallnlongvowels'
+        return text.lower() == 'smallnlongvowels'
 
     def on_enter_hiragana_smallnlongvowels(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_smallnlongvowels')

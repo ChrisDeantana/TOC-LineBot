@@ -137,7 +137,7 @@ def callback():
                 send_text_message(event.reply_token, "Please choose『Characters』Or『Vocabulary』Or『FSM』")
             if machine.state == 'hiragana_basic' or machine.state == 'hiragana_dakuon' or machine.state == 'hiragana_combo' or machine.state == 'hiragana_smallnlongvowels' \
                     or machine.state == 'katakana_basic' or machine.state == 'katakana_dakuon' or machine.state == 'katakana_combo' or machine.state == 'katakana_smallnlongvowels' \
-                    or machine.state == 'daynmonth' or machine.state == 'fruit' or machine.state == 'hobby':
+                    or machine.state == 'daynmonth' or machine.state == 'fruit' or machine.state == 'hobby' or machine.state == 'fsm':
                 send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     return "OK"

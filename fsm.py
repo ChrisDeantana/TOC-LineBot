@@ -119,7 +119,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_dakuon(self, event):
         text = event.message.text
@@ -127,7 +126,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_dakuon(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_dakuon.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_combo(self, event):
         text = event.message.text
@@ -135,7 +133,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_combo(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_combo.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_hiragana_smallnlongvowels(self, event):
         text = event.message.text
@@ -143,7 +140,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana_smallnlongvowels(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/H_smallnlongvowels.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_basic(self, event):
         text = event.message.text
@@ -151,7 +147,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_dakuon(self, event):
         text = event.message.text
@@ -159,7 +154,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_dakuon(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_dakuon.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_combo(self, event):
         text = event.message.text
@@ -167,7 +161,6 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_combo(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_combo.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     def is_going_to_katakana_smallnlongvowels(self, event):
         text = event.message.text
@@ -175,5 +168,4 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_smallnlongvowels(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_smallnlongvowels.jpg?raw=true')
-        send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 

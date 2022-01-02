@@ -117,8 +117,10 @@ def callback():
         if response == False:
             if machine.state == 'user':
                 send_text_message(event.reply_token, "Please choose『Characters』Or『Vocabulary』Or『FSM』")
-            if machine.state != 'user':
-                send_text_message(event.reply_token, "Input is wrong")
+            if machine.state == 'hiragana_basic' or machine.state == 'hiragana_dakuon' or machine.state == 'hiragana_combo' or machine.state == 'hiragana_smallnlongvowels' \
+                    or machine.state == 'katakana_basic' or machine.state == 'katakana_dakuon' or machine.state == 'katakana_combo' or machine.state == 'katakana_smallnlongvowels':
+                send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
+
     return "OK"
 
 @app.route("/webhook", methods=["POST"])

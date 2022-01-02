@@ -36,31 +36,45 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana(self, event):
         send_text_message(event.reply_token, 'Lets learn Hiragana')
-        title = 'Hiragana'
-        text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
+        # title = 'Hiragana'
+        # text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
+        # btn = [
+        #     MessageTemplateAction(
+        #         label='hiragana_Basic',
+        #         text='hiragana_Basic'
+        #     ),
+        #     MessageTemplateAction(
+        #         label='hiragana_Dakuon',
+        #         text='hiragana_Dakuon'
+        #     ),
+        #     MessageTemplateAction(
+        #         label='hiragana_Combo',
+        #         text='hiragana_Combo'
+        #     ),
+        #     MessageTemplateAction(
+        #         label='hiragana_Small',
+        #         text='hiragana_Small'
+        #     ),
+        #     MessageTemplateAction(
+        #         label='hiragana_LongVowels',
+        #         text='hiragana_LongVowels'
+        #     ),
+        # ]
+        # url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
+        # send_button_message(event.reply_token, title, text, btn, url)
+        title = 'Lets learn Japanese'
+        text = 'Choose『Hiragana』Or『Katakana』'
         btn = [
             MessageTemplateAction(
-                label='hiragana_Basic',
-                text='hiragana_Basic'
+                label='Hiragana',
+                text='Hiragana'
             ),
             MessageTemplateAction(
-                label='hiragana_Dakuon',
-                text='hiragana_Dakuon'
-            ),
-            MessageTemplateAction(
-                label='hiragana_Combo',
-                text='hiragana_Combo'
-            ),
-            MessageTemplateAction(
-                label='hiragana_Small',
-                text='hiragana_Small'
-            ),
-            MessageTemplateAction(
-                label='hiragana_LongVowels',
-                text='hiragana_LongVowels'
+                label='Katakana',
+                text='Katakana'
             ),
         ]
-        url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
+        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
         send_button_message(event.reply_token, title, text, btn, url)
 
     def is_going_to_katakana(self, event):

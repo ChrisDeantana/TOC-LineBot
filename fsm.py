@@ -1,7 +1,6 @@
 from transitions.extensions import GraphMachine
 
 from linebot.models import MessageTemplateAction
-from linebot import LineBotApi, WebhookParser
 from utils import send_text_message, send_carousel_message, send_button_message, send_image_message
 
 
@@ -14,8 +13,7 @@ class TocMachine(GraphMachine):
         return text.lower() == 'choose'
 
     def on_enter_characters(self, event):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Choose Hiragana Or Katakana"))
-        #send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
+        send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
 
     def is_going_to_hiragana(self, event):
         text = event.message.text

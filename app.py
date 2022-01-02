@@ -30,7 +30,8 @@ machine = TocMachine(
         "vocabulary",
         "daynmonth",
         "fruit",
-        "hobby"
+        "hobby",
+        "fsm"
     ],
     transitions=[
         {'trigger': 'advance', 'source': 'user', 'dest': 'characters', 'conditions': 'is_going_to_characters'},
@@ -58,7 +59,8 @@ machine = TocMachine(
         {'trigger': 'advance', 'source': 'vocabulary', 'dest': 'hobby', 'conditions': 'is_going_to_hobby'},
         {'trigger': 'advance', 'source': 'daynmonth', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {'trigger': 'advance', 'source': 'fruit', 'dest': 'user', 'conditions': 'is_going_to_user'},
-        {'trigger': 'advance', 'source': 'hobby', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'user', 'dest': 'fsm', 'conditions': 'is_going_to_fsm'},
+        {'trigger': 'advance', 'source': 'fsm', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {
             "trigger": "go_back",
             "source": [
@@ -77,7 +79,8 @@ machine = TocMachine(
                 "vocabulary",
                 "daynmonth",
                 "fruit",
-                "hobby"
+                "hobby",
+                "fsm"
             ],
             "dest": "user"
         },

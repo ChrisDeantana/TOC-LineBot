@@ -216,5 +216,13 @@ class TocMachine(GraphMachine):
     def on_enter_hobby(self, event):
         send_image_message(event.reply_token, 'https://pbs.twimg.com/media/E8Rg_bCWYA4u7AM.jpg')
 
+    def is_going_to_fsm(self, event):
+        text = event.message.text
+        return text.lower() == 'fsm'
+
+    def on_enter_fsm(self, event):
+        send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/fsm.jpg?raw=true')
+
+
 
 

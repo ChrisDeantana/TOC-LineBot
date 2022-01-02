@@ -7,30 +7,53 @@ class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
-    def is_going_to_state1(self, event):
+    def is_going_to_characters(self, event):
         text = event.message.text
-        return text.lower() == "go to state1"
+        return text.lower() == "fitness"
 
-    def is_going_to_state2(self, event):
+    def on_enter_characters(self, event):
+        title = 'Choose what you want to learn'
+        text = 'Choose『Hiragana』Or『Katakana』'
+        btn = [
+            MessageTemplateAction(
+                label='Hiragana',
+                text='Hiragana'
+            ),
+            MessageTemplateAction(
+                label='Katakana',
+                text='Katakana'
+            ),
+        ]
+        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
+        send_button_message(event.reply_token, title, text, btn, url)
+
+    def is_going_to_hiragana(self, event):
+        global charHorK
         text = event.message.text
-        return text.lower() == "go to state2"
 
-    def on_enter_state1(self, event):
-        print("I'm entering state1")
+        if text == 'Hiragana':
+            charHorK = 'Hiragana'
+            return True
+        elif text == 'Katakana':
+            charHorK = 'Katakana'
+            return True
+        return False
 
-        reply_token = event.reply_token
-        send_text_message(reply_token, "Trigger state1")
-        self.go_back()
+    def on_enter_hiragana(self, event):
+        send_text_message(event.reply_token, 'Display The Hiragana')
 
-    def on_exit_state1(self):
-        print("Leaving state1")
+    def is_going_to_katakana(self, event):
+        global charHorK
+        text = event.message.text
 
-    def on_enter_state2(self, event):
-        print("I'm entering state2")
+        if text == 'Hiragana':
+            charHorK = 'Hiragana'
+            return True
+        elif text == 'Katakana':
+            charHorK = 'Katakana'
+            return True
+        return False
 
-        reply_token = event.reply_token
-        send_text_message(reply_token, "Trigger state2")
-        self.go_back()
+    def on_enter_katakana(self, event):
+        send_text_message(event.reply_token, 'Display The Katakana')
 
-    def on_exit_state2(self):
-        print("Leaving state2")

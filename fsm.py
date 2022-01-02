@@ -35,58 +35,14 @@ class TocMachine(GraphMachine):
         return text.lower() == 'hiragana'
 
     def on_enter_hiragana(self, event):
-        send_text_message(event.reply_token, 'Lets learn Hiragana')
-        title = 'Hiragana'
-        text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
-        btn = [
-            MessageTemplateAction(
-                label='hiragana_Basic',
-                text='hiragana_Basic'
-            ),
-            MessageTemplateAction(
-                label='hiragana_Dakuon',
-                text='hiragana_Dakuon'
-            ),
-            MessageTemplateAction(
-                label='hiragana_Combo',
-                text='hiragana_Combo'
-            ),
-            MessageTemplateAction(
-                label='hiragana_SmallnLongVowels',
-                text='hiragana_Small'
-            ),
-        ]
-        url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
-        send_button_message(event.reply_token, title, text, btn, url)
+        send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
 
     def is_going_to_katakana(self, event):
         text = event.message.text
         return text.lower() == 'katakana'
 
     def on_enter_katakana(self, event):
-        send_text_message(event.reply_token, 'Lets learn Katakana')
-        title = 'Katakana'
-        text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
-        btn = [
-            MessageTemplateAction(
-                label='Basic',
-                text='Basic'
-            ),
-            MessageTemplateAction(
-                label='Dakuon',
-                text='Dakuon'
-            ),
-            MessageTemplateAction(
-                label='Combo',
-                text='Combo'
-            ),
-            MessageTemplateAction(
-                label='Small',
-                text='Smallnlongvowels'
-            ),
-        ]
-        url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
-        send_button_message(event.reply_token, title, text, btn, url)
+        send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
 
     def is_going_to_hiragana_basic(self, event):
         text = event.message.text

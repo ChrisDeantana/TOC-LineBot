@@ -3,7 +3,7 @@
 A Line bot based on a finite state machine to learn basic japanese skills
 
 ## Finite State Machine
-![fsm](./img/show-fsm.png)
+![fsm](./img/fsm.jpg)
 
 ## How to use
 The initial state is set to `user`.

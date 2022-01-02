@@ -106,7 +106,6 @@ parser = WebhookParser(channel_secret)
 
 @app.route("/callback", methods=["POST"])
 def callback():
-    machine.get_graph().draw("fsm.png", prog="dot", format="png")
     signature = request.headers["X-Line-Signature"]
     # get request body as text
     body = request.get_data(as_text=True)
@@ -172,8 +171,10 @@ def webhook_handler():
 
 @app.route("/show-fsm", methods=["GET"])
 def show_fsm():
-    machine.get_graph().draw("fsm.png", prog="dot", format="png")
-    return send_file("fsm.png", mimetype="image/png")
+    # machine.get_graph().draw("fsm.png", prog="dot", format="png")
+    # return send_file("fsm.png", mimetype="image/png")
+    print("test")
+    return {}
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_characters(self, event):
         text = event.message.text
-        return text.lower() == "fitness"
+        return text.lower() == "choose"
 
     def on_enter_characters(self, event):
         title = 'Choose what you want to learn'

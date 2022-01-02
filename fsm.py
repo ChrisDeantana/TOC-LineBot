@@ -59,7 +59,29 @@ class TocMachine(GraphMachine):
         return text.lower() == 'hiragana'
 
     def on_enter_hiragana(self, event):
-        send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
+        title = 'Lets learn Japanese'
+        text = 'Choose『Hiragana』Or『Katakana』'
+        btn = [
+            MessageTemplateAction(
+                label='Basic',
+                text='Basic'
+            ),
+            MessageTemplateAction(
+                label='Dakuon',
+                text='Dakuon'
+            ),
+            MessageTemplateAction(
+                label='Combo',
+                text='Combo'
+            ),
+            MessageTemplateAction(
+                label='SL-Vowels',
+                text='smallnlongvowels'
+            ),
+        ]
+        url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
+        send_button_message(event.reply_token, title, text, btn, url)
+        #send_text_message(event.reply_token, 'Choose『Basic』Or『Dakuon』Or『Combo』Or『SmallnLongVowels』')
 
     def is_going_to_katakana(self, event):
         text = event.message.text

@@ -1,91 +1,54 @@
-# TOC Project 2020
+# Learn Japanese - TOC Project 2021
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/dc7fa47fcd809b99d087/maintainability)](https://codeclimate.com/github/NCKU-CCS/TOC-Project-2020/maintainability)
-
-[![Known Vulnerabilities](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020/badge.svg)](https://snyk.io/test/github/NCKU-CCS/TOC-Project-2020)
-
-
-Template Code for TOC Project 2020
-
-A Line bot based on a finite state machine
-
-More details in the [Slides](https://hackmd.io/@TTW/ToC-2019-Project#) and [FAQ](https://hackmd.io/s/B1Xw7E8kN)
-
-## Setup
-
-### Prerequisite
-* Python 3.6
-* Pipenv
-* Facebook Page and App
-* HTTPS Server
-
-#### Install Dependency
-```sh
-pip3 install pipenv
-
-pipenv --three
-
-pipenv install
-
-pipenv shell
-```
-
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
-	* [Note: macOS Install error](https://github.com/pygraphviz/pygraphviz/issues/100)
-
-
-#### Secret Data
-You should generate a `.env` file to set Environment Variables refer to our `.env.sample`.
-`LINE_CHANNEL_SECRET` and `LINE_CHANNEL_ACCESS_TOKEN` **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
-
-#### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
-
-#### a. Ngrok installation
-* [ macOS, Windows, Linux](https://ngrok.com/download)
-
-or you can use Homebrew (MAC)
-```sh
-brew cask install ngrok
-```
-
-**`ngrok` would be used in the following instruction**
-
-```sh
-ngrok http 8000
-```
-
-After that, `ngrok` would generate a https URL.
-
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-#### b. Servo
-
-Or You can use [servo](http://serveo.net/) to expose local servers to the internet.
-
+A Line bot based on a finite state machine to learn basic japanese skills
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
 
-## Usage
+## How to use
 The initial state is set to `user`.
 
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
+### States
 * user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
+* characters
+* hiragana
+* katakana
+* hiragana_basic
+* hiragana_dakuon
+* hiragana_combo
+* hiragana_smallnlongvowels
+* katakana_basic
+* katakana_dakuon
+* katakana_combo
+* katakana_smallnlongvowels
+* vocabulary
+* daynmonth
+* fruit
+* hobby
 
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
 
-## Deploy
+
+The user will be asked to choose from 『Characters』/『Vocabulary』/『FSM』
+
+if the user choose 『Characters』
+
+	There will be another options such as 『Hiragana』/『Katakana』
+	
+		Each 『Hiragana』/『Katakana』have their own options, which are『Basic』/『Dakuon』/『Combo』/『SL-Vowels』
+		
+			The corresponding images will then be shown
+			
+if the user choose 『Vocabulary』.
+
+	There will be another options such as 『daynmonth』/『fruits』/『hobby』
+	
+		The corresponding images will then be shown
+		
+if the user choose 『FSM』.
+
+	a FSM graph will be shown 
+	
+## Deploy in Heroku
 Setting to deploy webhooks on Heroku.
 
 ### Heroku CLI installation
@@ -131,6 +94,8 @@ sudo snap install --classic heroku
 	```
 	heroku config:set LINE_CHANNEL_SECRET=your_line_channel_secret
 	heroku config:set LINE_CHANNEL_ACCESS_TOKEN=your_line_channel_access_token
+    heroku config:set APP_KEY=your_olami_APP_KEY
+    heroku config:set APP_SECRET=your_olami_APP_SECRET
 	```
 
 4. Your Project is now running on Heroku!
@@ -145,15 +110,12 @@ sudo snap install --classic heroku
 	```
 	heroku buildpacks:set heroku/python
 	heroku buildpacks:add --index 1 heroku-community/apt
-	```
 
-	refference: https://hackmd.io/@ccw/B1Xw7E8kN?type=view#Q2-如何在-Heroku-使用-pygraphviz
-
-## Reference
-[Pipenv](https://medium.com/@chihsuan/pipenv-更簡單-更快速的-python-套件管理工具-135a47e504f4) ❤️ [@chihsuan](https://github.com/chihsuan)
-
-[TOC-Project-2019](https://github.com/winonecheng/TOC-Project-2019) ❤️ [@winonecheng](https://github.com/winonecheng)
-
-Flask Architecture ❤️ [@Sirius207](https://github.com/Sirius207)
-
-[Line line-bot-sdk-python](https://github.com/line/line-bot-sdk-python/tree/master/examples/flask-echo)
+## Images
+![fsm](./img/1.jpg)
+![fsm](./img/2.jpg)
+![fsm](./img/3.jpg)
+![fsm](./img/4.jpg)
+![fsm](./img/5.jpg)
+![fsm](./img/6.jpg)
+![fsm](./img/7.jpg)

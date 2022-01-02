@@ -13,7 +13,8 @@ class TocMachine(GraphMachine):
         return text.lower() == 'choose'
 
     def on_enter_characters(self, event):
-        send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Choose Hiragana Or Katakana"))
+        #send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
 
     def is_going_to_hiragana(self, event):
         text = event.message.text

@@ -127,7 +127,7 @@ def callback():
 
         response = machine.advance(event)
 
-        if response == False:
+        if response == False | response == True:
             if machine.state == 'hiragana':
                 send_text_message(event.reply_token, 'I am hiragana')
             elif machine.state == 'katakana':

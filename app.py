@@ -115,26 +115,26 @@ def callback():
 
         if response == False:
             send_text_message(event.reply_token, "Please choose one of the following!")
-            # if machine.state == 'user':
-            #     send_text_message(event.reply_token, "Please choose one of the following!")
-            #     title = 'Lets learn Japanese'
-            #     text = 'Choose『Characters』Or『Vocabulary』Or『FSM』'
-            #     btn = [
-            #         MessageTemplateAction(
-            #             label='Characters',
-            #             text='Characters'
-            #         ),
-            #         MessageTemplateAction(
-            #             label='Vocabulary',
-            #             text='Vocabulary'
-            #         ),
-            #         MessageTemplateAction(
-            #             label='FSM',
-            #             text='FSM'
-            #         ),
-            #     ]
-            #     url = 'https://assets.website-files.com/5cdc34afa4217f8020168210/5e06163d20470442a540712b_languageIcon_japanese.png'
-            #     send_button_message(event.reply_token, title, text, btn, url)
+            if machine.state == 'user':
+                send_text_message(event.reply_token, "Please choose one of the following!")
+                title = 'Lets learn Japanese'
+                text = 'Choose『Characters』Or『Vocabulary』Or『FSM』'
+                btn = [
+                    MessageTemplateAction(
+                        label='Characters',
+                        text='Characters'
+                    ),
+                    MessageTemplateAction(
+                        label='Vocabulary',
+                        text='Vocabulary'
+                    ),
+                    MessageTemplateAction(
+                        label='FSM',
+                        text='FSM'
+                    ),
+                ]
+                url = 'https://assets.website-files.com/5cdc34afa4217f8020168210/5e06163d20470442a540712b_languageIcon_japanese.png'
+                send_button_message(event.reply_token, title, text, btn, url)
 
     return "OK"
 

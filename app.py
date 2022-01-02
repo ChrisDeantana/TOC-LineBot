@@ -28,7 +28,8 @@ machine = TocMachine(
         "katakana_dakuon",
         "katakana_combo",
         "katakana_small",
-        "katakana_longvowels"
+        "katakana_longvowels",
+        "restart"
     ],
     transitions=[
         {'trigger': 'advance', 'source': 'user', 'dest': 'characters', 'conditions': 'is_going_to_characters'},
@@ -127,16 +128,7 @@ def callback():
         response = machine.advance(event)
 
         if response == False:
-            if machine.state == 'hiragana':
-                send_text_message(event.reply_token, 'I am hiragana')
-            elif machine.state == 'katakana':
-                send_text_message(event.reply_token, 'I am katakana')
-
-        if response == True:
-            if machine.state == 'hiragana':
-                send_text_message(event.reply_token, 'I am hiragana')
-            elif machine.state == 'katakana':
-                send_text_message(event.reply_token, 'I am katakana')
+            send_text_message(event.reply_token, "Please check your input!")
 
     return "OK"
 

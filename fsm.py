@@ -63,7 +63,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_hiragana(self, event):
         title = 'Lets learn Japanese'
-        text = 'Choose『Hiragana』Or『Katakana』'
+        text = 'Choose 『Basic』Or『Dakuon』or『Combo』Or『SL-Vowels』'
         btn = [
             MessageTemplateAction(
                 label='Basic',
@@ -92,7 +92,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana(self, event):
         title = 'Lets learn Japanese'
-        text = 'Choose『Hiragana』Or『Katakana』'
+        text = 'Choose 『Basic』Or『Dakuon』or『Combo』Or『SL-Vowels』'
         btn = [
             MessageTemplateAction(
                 label='Basic',

@@ -115,7 +115,7 @@ def callback():
 
         if response == False:
             send_text_message(event.reply_token, "Please choose one of the following!")
-            if machine.state == 'user':
+            #if machine.state == 'user':
                 send_text_message(event.reply_token, "Please choose one of the following!")
                 title = 'Lets learn Japanese'
                 text = 'Choose『Characters』Or『Vocabulary』Or『FSM』'

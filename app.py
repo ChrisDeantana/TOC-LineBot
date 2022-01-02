@@ -26,8 +26,7 @@ machine = TocMachine(
         "katakana_basic",
         "katakana_dakuon",
         "katakana_combo",
-        "katakana_smallnlongvowels",
-        "restart"
+        "katakana_smallnlongvowels"
     ],
     transitions=[
         {'trigger': 'advance', 'source': 'user', 'dest': 'characters', 'conditions': 'is_going_to_characters'},
@@ -41,6 +40,14 @@ machine = TocMachine(
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_dakuon', 'conditions': 'is_going_to_katakana_dakuon'},
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_combo', 'conditions': 'is_going_to_katakana_combo'},
         {'trigger': 'advance', 'source': 'katakana', 'dest': 'katakana_smallnlongvowels', 'conditions': 'is_going_to_katakana_smallnlongvowels'},
+        {'trigger': 'advance', 'source': 'hiragana_basic', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'hiragana_dakuon', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'hiragana_combo', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'hiragana_smallnlongvowels', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'katakana_basic', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'katakana_dakuon', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'katakana_combo', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'katakana_smallnlongvowels', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {
             "trigger": "go_back",
             "source": [

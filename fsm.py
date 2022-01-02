@@ -82,11 +82,7 @@ class TocMachine(GraphMachine):
             ),
             MessageTemplateAction(
                 label='Small',
-                text='Small'
-            ),
-            MessageTemplateAction(
-                label='Long Vowels',
-                text='Long Vowels'
+                text='Smallnlongvowels'
             ),
         ]
         url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'

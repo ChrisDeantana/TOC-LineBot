@@ -40,24 +40,24 @@ class TocMachine(GraphMachine):
         text = 'Choose『Basic』,『Dakuon』,『Combo』,『Small』Or『Long Vowels』'
         btn = [
             MessageTemplateAction(
-                label='Basic',
-                text='Basic'
+                label='hiragana_Basic',
+                text='hiragana_Basic'
             ),
             MessageTemplateAction(
-                label='Dakuon',
-                text='Dakuon'
+                label='hiragana_Dakuon',
+                text='hiragana_Dakuon'
             ),
             MessageTemplateAction(
-                label='Combo',
-                text='Combo'
+                label='hiragana_Combo',
+                text='hiragana_Combo'
             ),
             MessageTemplateAction(
-                label='Small',
-                text='Small'
+                label='hiragana_Small',
+                text='hiragana_Small'
             ),
             MessageTemplateAction(
-                label='Long Vowels',
-                text='Long Vowels'
+                label='hiragana_LongVowels',
+                text='hiragana_LongVowels'
             ),
         ]
         url = 'https://en.pimg.jp/061/765/409/1/61765409.jpg'
@@ -98,35 +98,35 @@ class TocMachine(GraphMachine):
 
     def is_going_to_hiragana_basic(self, event):
         text = event.message.text
-        return text.lower() == 'basic'
+        return text.lower() == 'hiragana_basic'
 
     def on_enter_hiragana_basic(self, event):
         send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png')
 
     def is_going_to_hiragana_dakuon(self, event):
         text = event.message.text
-        return text.lower() == 'dakuon'
+        return text.lower() == 'hiragana_dakuon'
 
     def on_enter_hiragana_dakuon(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_dakuon')
 
     def is_going_to_hiragana_combo(self, event):
         text = event.message.text
-        return text.lower() == 'combo'
+        return text.lower() == 'hiragana_combo'
 
     def on_enter_hiragana_combo(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_combo')
 
     def is_going_to_hiragana_small(self, event):
         text = event.message.text
-        return text.lower() == 'small'
+        return text.lower() == 'hiragana_small'
 
     def on_enter_hiragana_small(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_small')
 
     def is_going_to_hiragana_longvowels(self, event):
         text = event.message.text
-        return text.lower() == 'longvowels'
+        return text.lower() == 'hiragana_longvowels'
 
     def on_enter_hiragana_longvowels(self, event):
         send_text_message(event.reply_token, 'Display The hiragana_longvowels')

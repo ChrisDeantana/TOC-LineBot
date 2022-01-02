@@ -3,6 +3,8 @@ from transitions.extensions import GraphMachine
 from linebot.models import MessageTemplateAction
 from utils import send_text_message, send_carousel_message, send_button_message, send_image_message
 
+#https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png - hiragana
+#https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png - katakana
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -14,7 +16,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_characters(self, event):
         title = 'Lets learn Japanese'
-        text = 'Choose『Hiragana』還是『Katakana』'
+        text = 'Choose『Hiragana』Or『Katakana』'
         btn = [
             MessageTemplateAction(
                 label='Hiragana',
@@ -27,21 +29,22 @@ class TocMachine(GraphMachine):
         ]
         url = 'https://i0.wp.com/blog.lingodeer.com/wp-content/uploads/2020/06/%E5%B9%B3%E5%81%87%E7%89%87%E5%81%87%E5%90%8D.png'
         send_button_message(event.reply_token, title, text, btn, url)
-        #send_text_message(event.reply_token, 'Choose Hiragana Or Katakana')
 
     def is_going_to_hiragana(self, event):
         text = event.message.text
         return text.lower() == 'hiragana'
 
     def on_enter_hiragana(self, event):
-        send_text_message(event.reply_token, 'Display The Hiragana')
+        send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png')
+        #send_text_message(event.reply_token, 'Display The Hiragana')
 
     def is_going_to_katakana(self, event):
         text = event.message.text
         return text.lower() == 'katakana'
 
     def on_enter_katakana(self, event):
-        send_text_message(event.reply_token, 'Display The Katakana')
+        send_image_message(event.reply_token, 'https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png')
+        #send_text_message(event.reply_token, 'Display The Katakana')
 
     def is_going_to_hiragana_basic(self, event):
         text = event.message.text

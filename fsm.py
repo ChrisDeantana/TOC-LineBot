@@ -5,7 +5,9 @@ from utils import send_text_message, send_button_message, send_image_message
 
 #https://apieceofsushi.com/wp-content/uploads/2020/09/HiraganaChartPinkAPIECEOFSUSHI.COM_-500x707.png - hiragana https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-hiragana.jpg
 #https://apieceofsushi.com/wp-content/uploads/2020/09/KatakanaChartBlackAPIECEOFSUSHI.COM_.png - katakana https://japanesetactics.com/wp-content/uploads/2020/01/how-to-learn-katakana.jpg
-
+#https://i.pinimg.com/originals/04/f6/d5/04f6d55edfc468e5c395a1eecbcf1eff.jpg - day and month
+#https://jpn-language.com/wp-content/uploads/2018/06/67e0e1c524d8d1f8b7e8316506302a80.jpg - fruits
+#https://pbs.twimg.com/media/E8Rg_bCWYA4u7AM.jpg - hobbies
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -168,4 +170,51 @@ class TocMachine(GraphMachine):
 
     def on_enter_katakana_smallnlongvowels(self, event):
         send_image_message(event.reply_token, 'https://github.com/ChrisDeantana/TOC-LineBot/blob/master/img/K_smallnlongvowels.jpg?raw=true')
+
+    def is_going_to_vocabulary(self, event):
+        text = event.message.text
+        return text.lower() == 'vocabulary'
+
+    def on_enter_vocabulary(self, event):
+        title = 'learn the words !'
+        text = 'Choose『daynmonth』Or『fruits』Or『hobby』'
+        btn = [
+            MessageTemplateAction(
+                label='daynmonth',
+                text='daynmonth'
+            ),
+            MessageTemplateAction(
+                label='fruit',
+                text='fruit'
+            ),
+            MessageTemplateAction(
+                label='hobby',
+                text='hobby'
+            ),
+        ]
+        url = 'https://cdn-icons-png.flaticon.com/512/987/987811.png'
+        send_button_message(event.reply_token, title, text, btn, url)
+
+    def is_going_to_daynmonth(self, event):
+        text = event.message.text
+        return text.lower() == 'daynmonth'
+
+    def on_enter_daynmonth(self, event):
+        send_image_message(event.reply_token, 'https://i.pinimg.com/originals/04/f6/d5/04f6d55edfc468e5c395a1eecbcf1eff.jpg')
+
+    def is_going_to_fruit(self, event):
+        text = event.message.text
+        return text.lower() == 'fruit'
+
+    def on_enter_fruit(self, event):
+        send_image_message(event.reply_token, 'https://jpn-language.com/wp-content/uploads/2018/06/67e0e1c524d8d1f8b7e8316506302a80.jpg')
+
+    def is_going_to_hobby(self, event):
+        text = event.message.text
+        return text.lower() == 'hobby'
+
+    def on_enter_hobby(self, event):
+        send_image_message(event.reply_token, 'https://pbs.twimg.com/media/E8Rg_bCWYA4u7AM.jpg')
+
+
 

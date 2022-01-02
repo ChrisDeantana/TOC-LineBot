@@ -26,7 +26,11 @@ machine = TocMachine(
         "katakana_basic",
         "katakana_dakuon",
         "katakana_combo",
-        "katakana_smallnlongvowels"
+        "katakana_smallnlongvowels",
+        "vocabulary",
+        "daynmonth",
+        "fruit",
+        "hobby"
     ],
     transitions=[
         {'trigger': 'advance', 'source': 'user', 'dest': 'characters', 'conditions': 'is_going_to_characters'},
@@ -48,6 +52,13 @@ machine = TocMachine(
         {'trigger': 'advance', 'source': 'katakana_dakuon', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {'trigger': 'advance', 'source': 'katakana_combo', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {'trigger': 'advance', 'source': 'katakana_smallnlongvowels', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'user', 'dest': 'vocabulary', 'conditions': 'is_going_to_vocabulary'},
+        {'trigger': 'advance', 'source': 'vocabulary', 'dest': 'daynmonth', 'conditions': 'is_going_to_daynmonth'},
+        {'trigger': 'advance', 'source': 'vocabulary', 'dest': 'fruit', 'conditions': 'is_going_to_fruit'},
+        {'trigger': 'advance', 'source': 'vocabulary', 'dest': 'hobby', 'conditions': 'is_going_to_hobby'},
+        {'trigger': 'advance', 'source': 'daynmonth', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'fruit', 'dest': 'user', 'conditions': 'is_going_to_user'},
+        {'trigger': 'advance', 'source': 'hobby', 'dest': 'user', 'conditions': 'is_going_to_user'},
         {
             "trigger": "go_back",
             "source": [
@@ -62,7 +73,11 @@ machine = TocMachine(
                 "katakana_basic",
                 "katakana_dakuon",
                 "katakana_combo",
-                "katakana_smallnlongvowels"
+                "katakana_smallnlongvowels",
+                "vocabulary",
+                "daynmonth",
+                "fruit",
+                "hobby"
             ],
             "dest": "user"
         },
@@ -118,7 +133,8 @@ def callback():
             if machine.state == 'user':
                 send_text_message(event.reply_token, "Please choose『Characters』Or『Vocabulary』Or『FSM』")
             if machine.state == 'hiragana_basic' or machine.state == 'hiragana_dakuon' or machine.state == 'hiragana_combo' or machine.state == 'hiragana_smallnlongvowels' \
-                    or machine.state == 'katakana_basic' or machine.state == 'katakana_dakuon' or machine.state == 'katakana_combo' or machine.state == 'katakana_smallnlongvowels':
+                    or machine.state == 'katakana_basic' or machine.state == 'katakana_dakuon' or machine.state == 'katakana_combo' or machine.state == 'katakana_smallnlongvowels' \
+                    or machine.state == 'daynmonth' or machine.state == 'fruit' or machine.state == 'hobby':
                 send_text_message(event.reply_token, 'Type 『back』 to go back to main menu')
 
     return "OK"

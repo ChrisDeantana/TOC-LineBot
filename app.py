@@ -72,11 +72,13 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
 
-        line_bot_api.reply_message(
-            #event.reply_token, TextSendMessage(text=event.message.text)
-            event.reply_token, TextSendMessage(text="Test!")
-        )
-
+        # line_bot_api.reply_message(
+        #     #event.reply_token, TextSendMessage(text=event.message.text)
+        #     event.reply_token, TextSendMessage(text="Test!")
+        # )
+        if event.message.text.lower() == "dean":
+            send_text_message(event.reply_token, "I LOVE YOU")
+            
     return "OK"
 
 
